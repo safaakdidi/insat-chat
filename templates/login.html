@@ -1,0 +1,60 @@
+{% extends "prelogin-layout.html" %}
+
+{% block content  %}
+<section class="intro">
+  <div class="mask d-flex align-items-center h-100" style="background-color: #D6D6D6;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+              <div class="my-md-5 pb-5">
+
+                <h1 class="fw-bold mb-0">Welcome</h1>
+
+                <i class="fas fa-user-astronaut fa-3x my-5"></i>
+ <form class="mx-1 mx-md-4" action="{{url_for('login')}}" method="POST">
+                <div class="form-outline mb-4">
+                    {{ form.email(class='form-control form-control-lg')}}
+                     {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                        {% endfor %}
+
+                  <label class="form-label" >Email</label>
+                </div>
+
+                <div class="form-outline mb-5">
+
+                    {{ form.pwd(class='form-control form-control-lg')}}
+                     {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                        {% endfor %}
+
+                  <label class="form-label" >Password</label>
+                </div>
+     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+ {{ form.submit_button }}
+     </div>
+
+<!--                <button class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5" type="submit">Login</button>-->
+  {{ form.csrf_token }}
+ </form>
+              </div>
+
+
+
+              <div>
+                <p class="mb-0">Don't have an account? <a href="#!" class="text-body fw-bold">Sign Up</a></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
